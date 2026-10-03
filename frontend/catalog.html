@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos - Inventario</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Barra de Navegación -->
+  <header class="navbar">
+    <h1>Gestión de Inventario</h1>
+    <div class="nav-user">
+      <span id="user-role-badge" class="user-badge">ROL</span>
+      <button id="logout-btn" class="btn btn-secondary">Cerrar Sesión</button>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main id="main-content" class="main-container">
+    
+    <!-- Formulario para agregar producto (Oculto por defecto mediante CSS) -->
+    <section id="add-product-section" class="card hidden">
+      <h2>Agregar Producto</h2>
+      
+      <div id="form-alert" class="alert hidden"></div>
+
+      <form id="add-product-form">
+        <div class="form-group">
+          <label for="product-name">Nombre</label>
+          <input type="text" id="product-name" class="form-control" required placeholder="Ej: Laptop Dell">
+        </div>
+
+        <div class="form-group">
+          <label for="product-price">Precio ($)</label>
+          <input type="number" id="product-price" step="0.01" min="0" class="form-control" required placeholder="0.00">
+        </div>
+
+        <div class="form-group">
+          <label for="product-stock">Stock Inicial</label>
+          <input type="number" id="product-stock" min="0" class="form-control" required placeholder="0">
+        </div>
+
+        <button type="submit" class="btn">Guardar Producto</button>
+      </form>
+    </section>
+
+    <!-- Lista / Tabla de Productos -->
+    <section class="card">
+      <h2>Catálogo de Productos</h2>
+      <div class="table-responsive">
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+            </tr>
+          </thead>
+          <tbody id="products-list">
+            <!-- Renderizado dinámico de filas -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/catalog.js" defer></script>
+</body>
+</html>
